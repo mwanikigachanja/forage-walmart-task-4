@@ -27,4 +27,5 @@ df_cleaned_sorted = df_cleaned.sort_values(by='CODE').reset_index(drop=True)
 output_file_path = 'Cleaned_August_2024_Expenses.xlsx'
 df_cleaned_sorted.to_excel(output_file_path, index=False)
 
+# Success Alert: only true when conversion is done. 
 print(f"Data cleaned and saved to {output_file_path}")
