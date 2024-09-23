@@ -1,5 +1,9 @@
 import pandas as pd
 
+# This script cleans the data from the Excel file 'august.xlsx' and saves the cleaned data to a new Excel file.
+# The data is expected to be in a specific format with columns: 'DATE', 'RECEIPT NO', 'SUPPLIER', 'DETAILS', 'CODE', 'AMT(KSH)'.
+# The script performs the following steps:
+
 # Step 1: Load the Excel file
 file_path = 'august.xlsx'  # Update this path to your actual file location
 xls = pd.ExcelFile(file_path)
