@@ -78,7 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'seedinsight_db',
         'USER': 'root',
-        'PASSWORD': 'your_password',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }
