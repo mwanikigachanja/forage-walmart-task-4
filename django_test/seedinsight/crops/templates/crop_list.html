@@ -1,0 +1,23 @@
+<h1>Available Crops</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Variety</th>
+        <th>Altitude Zone</th>
+        <th>Maturity</th>
+        <th>Rate</th>
+        <th>Yield</th>
+        <th>Attributes</th>
+    </tr>
+    {% for crop in crops %}
+    <tr>
+        <td>{{ crop.name }}</td>
+        <td>{{ crop.variety }}</td>
+        <td>{{ crop.altitude_zone }}</td>
+        <td>{{ crop.maturity }}</td>
+        <td>{{ crop.rate }}</td>
+        <td>{{ crop.yield_amount }}</td>
+        <td>{{ crop.attributes }}</td>
+    </tr>
+    {% endfor %}
+</table>

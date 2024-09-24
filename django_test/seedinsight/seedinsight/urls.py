@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from crops.views import get_seed_recommendations, home # Import the function
 from crops.views import add_crop  # Import the add_crop view
+from crops.views import crop_list  # Import the crop_list view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('recommendations/', get_seed_recommendations, name='seed_recommendations'),
     path('', home, name='home'),  # Add the root URL pattern
-     path('admin/add-crop/', add_crop, name='add_crop'),  # Add the URL pattern for the add crop page
+    path('admin/add-crop/', add_crop, name='add_crop'),  # Add the URL pattern for the add crop page
+    path('crops/', crop_list, name='crop_list'),  # Add the URL pattern for the crop list page
+
 ]
