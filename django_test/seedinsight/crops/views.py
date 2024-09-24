@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import requests
 from crops.models import Seed
+from .forms import CropForm
 
 # Create your views here.
 def get_seed_recommendations(request):
@@ -45,3 +46,15 @@ def fetch_weather(location):
         altitude_zone = 'Very High Altitude'
     
     return weather_data, altitude_zone
+
+
+def add_crop(request):
+    if request.method == 'POST':
+        form = CropForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('crop_list')  # Redirect to crop list page
+    else:
+        form = CropForm()
+
+    return render(request, 'add_crop.html', {'form': form})
