@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import requests
-from .models import Seed
+from crops.models import Seed
 
 # Create your views here.
 def get_seed_recommendations(request):
