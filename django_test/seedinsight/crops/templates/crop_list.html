@@ -11,12 +11,12 @@
     </tr>
     {% for crop in crops %}
     <tr>
-        <td>{{ crop.name }}</td>
+        <td>{{ crop.crop }}</td>
         <td>{{ crop.variety }}</td>
         <td>{{ crop.altitude_zone }}</td>
         <td>{{ crop.maturity }}</td>
         <td>{{ crop.rate }}</td>
-        <td>{{ crop.yield_amount }}</td>
+        <td>{{ crop.yield_per_acre }}</td>
         <td>{{ crop.attributes }}</td>
     </tr>
     {% endfor %}
