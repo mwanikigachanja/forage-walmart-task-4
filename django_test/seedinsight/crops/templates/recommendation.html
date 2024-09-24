@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seed Recommendations</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Seed Recommendations for {{ altitude_zone }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Crop</th>
+                <th>Variety</th>
+                <th>Maturity Period (Days)</th>
+                <th>Seed Rate per Acre (kg)</th>
+                <th>Yield (90Kg bags/Acre)</th>
+                <th>Attributes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for seed in seeds %}
+                <tr>
+                    <td>{{ seed.crop }}</td>
+                    <td>{{ seed.variety }}</td>
+                    <td>{{ seed.maturity }}</td>
+                    <td>{{ seed.rate }}</td>
+                    <td>{{ seed.yield_per_acre }}</td>
+                    <td>{{ seed.attributes }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
