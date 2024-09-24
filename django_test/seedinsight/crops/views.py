@@ -9,6 +9,8 @@ def get_seed_recommendations(request):
     return render(request, 'seed_recommendations.html', {'seeds': seeds, 'altitude_zone': altitude_zone})
 
 
+def home(request):
+    return render(request, 'recommendation.html')  # Render the landing page template
 
 
 def fetch_location():
