@@ -58,3 +58,7 @@ def add_crop(request):
         form = CropForm()
 
     return render(request, 'add_crop.html', {'form': form})
+
+def crop_list(request):
+    crops = Seed.objects.all()
+    return render(request, 'crop_list.html', {'crops': crops})
