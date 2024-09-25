@@ -15,12 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from crops.views import recommend_seeds # Import the function
+from django.urls import path, include
+from django.http import HttpResponseRedirect  # Import the HttpResponseRedirect function
+# from crops.views import recommend_seeds # Import the function
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('recommend-seeds/', recommend_seeds, name='recommend_seeds'),  # Add the URL pattern for the recommend seeds page
+    path('', lambda request: HttpResponseRedirect('recommend-seeds/')),  # Redirect to the recommend seeds page
+    path('recommend-seeds/', include('seeds.urls')),  # Include the seeds app's URLs
 
 ]
