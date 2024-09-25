@@ -1,41 +1,38 @@
-<h1>Seed Recommendations</h1>
+<h1>Seed Recommendations for {{ location }}</h1>
 
-<form method="GET" action="{% url 'recommend_seeds' %}">
-    <label for="location">Enter Location:</label>
-    <input type="text" id="location" name="location" value="{{ location }}" placeholder="Enter a location">
-    <button type="submit">Search</button>
-</form>
+<div>
+    <h2>Weather Information</h2>
+    <p>Temperature: {{ weather_data.temperature }} °C</p>
+    <p>Weather Description: {{ weather_data.description }}</p>
+    <p>Humidity: {{ weather_data.humidity }}%</p>
+    <p>Wind Speed: {{ weather_data.wind_speed }} m/s</p>
+    <p>Cloudiness: {{ weather_data.cloudiness }}%</p>
+</div>
 
-<h2>Location: {{ location }}</h2>
-<h3>Altitude Zone: {{ altitude_zone }}</h3>
-
-{% if recommended_crops %}
+<div>
+    <h2>Recommended Crops for {{ altitude_zone }}</h2>
     <table>
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Crop</th>
                 <th>Variety</th>
-                <th>Altitude Zone</th>
-                <th>Maturity</th>
-                <th>Rate</th>
-                <th>Yield</th>
+                <th>Maturity (days)</th>
+                <th>Seed Rate (kg/acre)</th>
+                <th>Yield (bags/acre)</th>
                 <th>Attributes</th>
             </tr>
         </thead>
         <tbody>
             {% for crop in recommended_crops %}
-            <tr>
-                <td>{{ crop.name }}</td>
-                <td>{{ crop.variety }}</td>
-                <td>{{ crop.altitude_zone }}</td>
-                <td>{{ crop.maturity }}</td>
-                <td>{{ crop.rate }}</td>
-                <td>{{ crop.yield_amount }}</td>
-                <td>{{ crop.attributes }}</td>
-            </tr>
+                <tr>
+                    <td>{{ crop.name }}</td>
+                    <td>{{ crop.variety }}</td>
+                    <td>{{ crop.maturity }}</td>
+                    <td>{{ crop.seed_rate }}</td>
+                    <td>{{ crop.yield_amount }}</td>
+                    <td>{{ crop.attributes }}</td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>
-{% else %}
-    <p>No crops found for the given location and altitude zone.</p>
-{% endif %}
+</div>
