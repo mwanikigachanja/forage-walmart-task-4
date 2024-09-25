@@ -1,7 +1,17 @@
 <h1>Seed Recommendations for {{ location }}</h1>
 
 <div>
-    <h2>Weather Information</h2>
+    <h2>Enter Your Location</h2>
+    <form method="GET" action="{% url 'recommend_seeds' %}">
+        <input type="text" name="location" id="location-input" placeholder="Enter your location">
+        <button type="submit">Update Location</button>
+    </form>
+</div>
+
+<hr>
+
+<div>
+    <h2>Weather Information for {{ location }}</h2>
     <p>Temperature: {{ weather_data.temperature }} °C</p>
     <p>Weather Description: {{ weather_data.description }}</p>
     <p>Humidity: {{ weather_data.humidity }}%</p>
@@ -9,9 +19,11 @@
     <p>Cloudiness: {{ weather_data.cloudiness }}%</p>
 </div>
 
+<hr>
+
 <div>
     <h2>Recommended Crops for {{ altitude_zone }}</h2>
-    <table>
+    <table class="styled-table">
         <thead>
             <tr>
                 <th>Crop</th>
